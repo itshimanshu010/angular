@@ -29,4 +29,25 @@ SPA does not make request to server for every URL requests
 Angular has its own router named as Angular slash router
 
 
+#Note 3
+Installation: npm i @angular/cli -g
 
+Mac
+sudo npm i @angular/cli -g
+
+Version Check
+ng --v
+or
+ng --version
+
+angular/cli:allows to create multiple within the workspace
+//it mean creates workspace and then add project
+
+create a empty workspace
+ng new hotelinventoryapp--createApplication=false
+
+create a workspace with default application
+ng new hotelapp
+
+creating app in workspace
+ng g app hotelinventory
