@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "ac17",
+      "fullName": "Raghav C",
+      "email": "rc@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "9a7f",
+      "fullName": "Himanshu",
+      "email": "hi@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "65e1",
+      "fullName": "Himanshu",
+      "email": "hi@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": "69cd",
+      "fullName": "Raj",
+      "email": "raj@gmail.com",
+      "password": "123456789",
+      "gender": "male",
+      "mobileNumber": "9852147963"
+    },
+    {
+      "id": "13b1",
+      "fullName": "Himanshu",
+      "email": "hi@gm.com",
+      "password": "123456789",
+      "gender": "male",
+      "mobileNumber": "9507419630"
+    }
+  ]
+}
