@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-roomlist',
+  selector: 'hinv-roomlist',
   templateUrl: './roomlist.component.html',
   styleUrls: ['./roomlist.component.css']
 })

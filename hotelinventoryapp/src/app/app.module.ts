@@ -11,6 +11,7 @@ import { RoomlistComponent } from './rooms/roomlist/roomlist.component';
     AppComponent,
     RoomsComponent,
     RoomlistComponent
+
   ],
   imports: [
     BrowserModule,

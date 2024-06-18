@@ -1,1 +1,44 @@
-<div ></div>
+<h1>Welcome to  {{hotelName}} </h1> 
+<!-- using Interpolation here {{ }} -->
+
+Number of Rooms Available:
+<div [innerText]="numberOfRooms"></div>
+<!-- using Property Binding here [ ] -->
+ <!-- "" called as variable or property and '' as string --> 
+ <!-- "numberOfRooms" is a property of the component class and it is being displayed in the div element --> 
+<!-- in javascript we can use innerText property to set the text of an element
+example 
+document.getElementById("demo").innerText = "Hello World!";   -->
+
+<!-- Event Binding for collecting and interact with user and data -->
+
+<button (click)="openToggle()">Toggle</button>
+<!-- instad of onclick we use (click) in angular -->
+
+<div [hidden]="hideRooms"> 
+    This is hide and show content by Toggle button
+    <!-- hidden="hideRooms" here hidden is dom property and hideRooms is a property of the component class -->
+</div>
+
+
+<!-- but this is using hidden which will be seen on browser inspect element but not on the page -->
+<button (click)="Toggle()">Toggle</button>
+<div *ngIf="hideRoomswithng">
+    This is hide and show content by Toggle button by using *ngIf
+    <!-- *ngIf="hideRooms" here *ngIf is a structure directive and hideRooms is a property of the component class -->
+</div>
+
+<!-- Directive :Structure and Attribute Directives
+structure directive are ngIf, ngFor, ngSwitch (*ngIf, *ngFor, *ngSwitch)    
+atrribute directive are ngStyle, ngClass, ngModel [ngStyle], [ngClass], [(ngModel -->
+
+
+<!-- first we create room.ts for interace -->
+
+<!-- <div *ngIf="rooms.totalRoom > 0">
+    Room List
+    it will not show because i have put totalRoom zero there
+</div> -->
+{{rooms ?? 'No Rooms Available'}}
+
+<!-- Optional Chaining Operator (?.) in Angular -->
