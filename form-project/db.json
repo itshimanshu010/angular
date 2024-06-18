@@ -33,6 +33,14 @@
       "password": "123456789",
       "gender": "male",
       "mobileNumber": "9507419630"
+    },
+    {
+      "id": "d3f9",
+      "fullName": "Staff",
+      "email": "staff@gmail.com",
+      "password": "123456789",
+      "gender": "male",
+      "mobileNumber": "7123456789"
     }
   ]
 }
