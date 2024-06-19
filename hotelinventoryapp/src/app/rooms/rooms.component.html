@@ -39,6 +39,64 @@ atrribute directive are ngStyle, ngClass, ngModel [ngStyle], [ngClass], [(ngMode
     Room List
     it will not show because i have put totalRoom zero there
 </div> -->
-{{rooms ?? 'No Rooms Available'}}
+
 
 <!-- Optional Chaining Operator (?.) in Angular -->
+<!-- {{ rooms.availableRoom ?? 'No Rooms Available'}} -->
+<!-- //if avaibale rooms is not exist -->
+ <!-- for this there are made in room.ts and ts file as
+ rooms : Room = {
+    
+ } and
+ export interface Room{
+    totalRoom?: number;
+    availableRoom?: number;
+    bookedRoom?: number;
+} -->
+
+
+<div *ngIf="rooms?.availableRoom">
+    Room List
+</div>
+
+
+<!-- //Binding Array -->
+<div *ngIf="rooms.availableRoom > 0">
+
+    Room List
+    <!-- {{roomList}} -->
+
+    <table>
+        <tr>
+            <th>Index</th>
+            <th>Even/Odd</th>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Room Price</th>
+            <th>Room Amenities</th>
+            <th>CheckIn Time</th>
+           
+        </tr>
+        <tr 
+            [ngClass]="e ? 'even' : 'odd'"
+            *ngFor="let room of roomList; let e=even; let o=odd; let i =index">
+            <!-- Here we use slice pipe to get the first 3 characters of the roomType 
+            <tr [ngClass]="e ? 'even' : 'odd'"
+            *ngFor="let room of roomList | slice :0:3; let e=even; let o=odd; let i =index"> -->
+            <td>{{i | percent}}</td>
+            <td>{{e ? "Even" :"Odd"}}</td>
+            <td>{{room.roomNumber}}</td>
+            <td>{{room.roomType | uppercase}}</td>
+            <td>{{room.price | currency:'INR'}}</td>
+            <td>{{room.amenities | titlecase}}</td>
+            <td>{{room.checkInTime | date}}</td>
+        </tr>
+    </table>
+</div>
+
+<div [ngStyle]="{'color':rooms.availableRoom > 0 ? 'green' : 'red'}">
+    Room List ngStyle
+</div>
+
+<!-- {{ rooms?.availableRoom ?? 'No Rooms Available'}} remember this -->
+ {{roomList | json}}  <!--  using pipe so that i will so as object in json -->
