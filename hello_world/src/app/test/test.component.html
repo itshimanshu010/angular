@@ -6,6 +6,7 @@
 
 
 <!-- Now what you cant do -->
+ 
  <!-- {{a=2+2}}
     {{window.location.href}}
     {{console.log("Hello")}}
@@ -17,4 +18,54 @@
 <!-- property binding -->
 <input [id]="myId" type="text" value="Jaiswal1">
 <!-- syntax: [HtmlAttribute]="property or variable" -->
+<br>
+Interpolation Limitations:
+Only string values works
+Example
+<br>
+<input [id]="myId" disabled type="text" value="Jaiswal1"> 
+now this disabled but
 
+<br>
+<input [id]="myId" disabled=""false type="text" value="Jaiswal1"> 
+by ,making disabled= false it still will not work
+
+<br>
+
+<input [id]="myId" [disabled]="false" type="text" value="Jaiswal1">
+now this works becaue we use property binding [disabled]="false" 
+
+<br>
+
+<input [id]="myId" [disabled]="isDisabled" type="text" value="Jaiswal1">
+<br>
+other way to use [disabled] as bind-disabled
+<input [id]="myId" bind-disabled="isDisabled" type="text" value="Jaiswal1">
+
+
+
+<h1 class="text-success">hello ji this is Regular Way </h1>
+
+<h1 [class]="successClass">hello ji this is class binding</h1>
+
+<h1 class="text-check" [class]="successClass">hello ji this is class binding</h1>
+ 
+<h1 [style.color]=" hasError ? 'red' : 'green' ">hello ji this is style binding</h1>
+
+
+<h1 [ngStyle]="titleStyles">hello ji this is style binding</h1>
+
+<button (click)="clickHere($event)">Greet</button>
+
+{{greeting}}
+
+<input #myInput type="text">
+<button (click)="logMessage(myInput.value)">Log</button>
+<button (click)="logMessage(myInput)">WithReferecing</button>
+
+
+
+<h1>ngModal</h1>
+
+<input  [(ngModel)]="fname" type ="text" placeholder="type here">
+{{fname}}
