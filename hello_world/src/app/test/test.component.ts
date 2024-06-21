@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter,Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -44,5 +44,27 @@ export class TestComponent {
 
     public fname = "";
 
-    
+    displayName= true;
+
+    public color = "aqua";
+
+    public rang = ["red", "blue", "green", "yellow"]
+
+    @Input() public parentData:any;
+
+    @Output() public childEvent = new EventEmitter();
+
+    fireEvent(){
+      this.childEvent.emit('Hey Himanshu Jaiswal')
+    }
+
+
+    // service
+    public persons =[
+      { "id": 1,"name": "Rishu", "age": 25},
+      { "id": 2,"name": "Himanshu", "age": 26},
+      { "id": 3,"name": "Rahul", "age": 27},
+      { "id": 4,"name": "Rohit", "age": 28},
+      { "id": 5,"name": "Raj", "age": 29}
+    ]       
 }

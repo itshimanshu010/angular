@@ -69,3 +69,50 @@ other way to use [disabled] as bind-disabled
 
 <input  [(ngModel)]="fname" type ="text" placeholder="type here">
 {{fname}}
+
+
+<h1>ngif</h1>
+
+<h2 *ngIf="displayName ; else elseBlock">It workings guyz</h2>
+
+<ng-template #elseBlock>
+<h2 >Name is hidden</h2>
+
+</ng-template>
+
+
+
+Now the example of then and else
+
+<div *ngIf="displayName; then thenBlock; else elsekaBlock"></div>
+
+<ng-template #thenBlock>
+    <h2 >See this what it is</h2> 
+</ng-template>
+
+<ng-template #elsekaBlock>
+     <h2 >Nothing to see here</h2>      
+</ng-template>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">You Picked red color</div>
+    <div *ngSwitchCase="'blue'">You Picked blue color</div>
+    <div *ngSwitchCase="'orange'">You Picked orange color</div>
+    <div *ngSwitchDefault>Pick Again</div>
+</div>
+
+ngfor it have multiiple ways to use like index,first,last,even,odd 
+<div *ngFor="let color of rang; index as i;">
+  <h3> {{i}} {{color}}</h3>
+</div>
+
+<h2>{{"Hello  " + parentData}}</h2>
+
+<button (click)="fireEvent()">Send Event</button>
+
+
+<h2>Service Example</h2>
+<h2>Student Details</h2>
+<ul *ngFor="let person of persons">
+    <li>{{person.id}}.  {{person.name}} - {{person.age}}</li>
+</ul>

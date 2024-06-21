@@ -22,6 +22,7 @@ export class TestComponent {
   name: 'customPipe'
   
 })
+
 export class CustomPipe implements PipeTransform{
   transform(value: string): string {
     return value.toUpperCase();
