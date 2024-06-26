@@ -9,7 +9,8 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeService } from './employee.service';
 import { HttpClientModule } from '@angular/common/http';
-import { DepartmentListComponent } from './department-list/department-list.component'; // {Http
+import { DepartmentListComponent } from './department-list/department-list.component';
+import { EmployeeErrorListComponent } from './employee-error-list/employee-error-list.component'; // {Http
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { DepartmentListComponent } from './department-list/department-list.compo
     EmployeeDetailComponent,
     EmployeeListComponent,
     DepartmentListComponent,
+    EmployeeErrorListComponent,
     
   ],
   imports: [
