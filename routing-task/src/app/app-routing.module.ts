@@ -9,19 +9,19 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/department',
+    redirectTo: '/departments',
     pathMatch: 'full'
   },
   {
-    path: 'department',
+    path: 'departments',
     component: DepartmentListComponent
   },
   {
-    path: 'department/:id',
+    path: 'departments/:id',
     component: DepartmentDetailComponent
   },
   {
-    path:'employee',
+    path:'employees',
     component: EmployeeListComponent
   },
   {

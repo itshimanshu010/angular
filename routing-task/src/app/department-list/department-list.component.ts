@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { isDepartment } from './department';
 @Component({
   selector: 'app-department-list',
   template: `
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
       <li (click)="onSelect(department)" *ngFor="let department of departments">
         <span class="badge">{{ department.id }}</span> {{ department.name }}
       </li>
+    </ul>
   `,
   styles: [
   ]
@@ -18,7 +20,7 @@ import { Router } from '@angular/router';
 
 export class DepartmentListComponent {
 
-  departments = [
+  departments:isDepartment[] = [
     {"id": 1, "name": "Angular"},
     {"id": 2, "name": "Node"},
     {"id": 3, "name": "MongoDB"},
@@ -28,7 +30,7 @@ export class DepartmentListComponent {
 
   constructor(private router: Router) { }
 
-  onSelect(department:any){
-    this.router.navigate(['/department', department.id]);
+  onSelect(department:isDepartment){
+    this.router.navigate(['/departments', department.id]);
   }
 }

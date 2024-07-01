@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <h3>
       page-not-found!
-</h3>
+    </h3>
   `,
   styles: [
   ]
