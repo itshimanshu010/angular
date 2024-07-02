@@ -5,6 +5,8 @@
     <pre>{{ userForm.value | json }}</pre>
     For getting value we use value property and pass it on json pipe
     
+    <hr/>
+    {{userModel | json}}
     <!-- create group of address div and add form-group class  
     <div ngModelGroup="address">
 
@@ -33,41 +35,56 @@
     
     <div class="form-group mt-3">
       <label>Name</label>
-      <input type="text" class="form-control" name="username" ngModel>
+      <input type="text" required #name="ngModel" 
+      [class.is-invalid]="name.invalid && name.touched"class="form-control" name="userName" [(ngModel)]="userModel.name">
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is reqiured</small>
+
     </div>
+
+    <!-- {{name.valid}} -->
 
     <div class="form-group mt-3">
       <label>Email</label>
-      <input type="email" class="form-control" name="email" ngModel>
+      <input type="email" class="form-control"  name="email" [(ngModel)]="userModel.email">
     </div>
 
     <div class="form-group mt-3">
       <label>Phone</label>
-      <input type="tel" class="form-control" name="phone" ngModel>
+      <input type="tel" #phone="ngModel" pattern="^\d{10}$" required
+      [class.is-invalid]="phone.invalid && phone.touched" class="form-control" name="phone" [(ngModel)]="userModel.phone">
+     
+      <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required and must be 10 digit</small> -->
+      <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+          <small class="text-danger" *ngIf="phone.errors['required']">Phone number is required</small>
+          <small class="text-danger" *ngIf="phone.errors['pattern']">Phone number must be 10 digits</small>
+      </div>
+
     </div> 
     
     <div class="form-group mt-3">
-      <select class="form-select" name="course" ngModel>
-        <option selected>Choose Course</option>
-        <option *ngFor="let course of topic">{{course}}</option>
+      <select required #topic="ngModel" [class.is-invalid]="topic.invalid && topic.touched" class="form-select" name="course" [(ngModel)]="userModel.topic">
+        <option value="">Choose Course</option>
+        <option *ngFor="let topic of topics">{{topic}}</option>
       </select>
-    </div>
+
+      <small class="text-danger" [class.d-none]="topic.valid || topic.untouched"> Please choose a topic </small>
+    </div> 
 
     <div class="mt-3">
       <label>Time Preference</label>
       <div class="form-check">
-        <input type="radio" class="form-check-input" ngModel name="timePreference" value="morning">
+        <input type="radio" class="form-check-input" [(ngModel)]="userModel.timePreference" name="timePreference" value="morning">
         <label class="form-check-label">Morning (9 AM - 12 PM)</label>
       </div>
 
       <div class="form-check">
-        <input type="radio" class="form-check-input" ngModel name="timePreference" value="evening">
+        <input type="radio" class="form-check-input" [(ngModel)]="userModel.timePreference" name="timePreference" value="evening">
         <label class="form-check-label">Evening (5 PM - 8 PM)</label>
       </div>
     </div>
 
     <div class="form-check mt-3">
-      <input type="checkbox" class="form-check-input" name="subscibe" ngModel>
+      <input type="checkbox" class="form-check-input" name="subscibe" [(ngModel)]="userModel.subscribe">
       <label class="form-check-label">Send Me a Promotional Offers </label>
     </div>
 

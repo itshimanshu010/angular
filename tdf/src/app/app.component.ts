@@ -8,7 +8,7 @@ import { User } from './user';
 })
 export class AppComponent {
   title = 'Angular 8';
-  topic = ['Angular', 'React', 'Vue'];
+  topics = ['Angular', 'React', 'Vue'];
 
   //creating instance of the model
   userModel = new User('Himanshu','hi@gmail.com',55555542,'','morning',true);
