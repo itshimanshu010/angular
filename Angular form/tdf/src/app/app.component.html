@@ -3,7 +3,7 @@
   <div class="alert alert-danger" *ngIf="errorMsg">
     {{errorMsg}}
   </div>
-  <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+  <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(userForm)" novalidate>
 
     <pre>{{ userForm.value | json }}</pre>
     For getting value we use value property and pass it on json pipe
