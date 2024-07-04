@@ -1,21 +1,50 @@
 <div class="container-fluid">
   <h2>Registration Form</h2>
-  <form>
-    <div class="form-group">
+  <form [formGroup]="registrationForm">
+    {{registrationForm.value | json}}
+    <div class="form-group mt-3">
       <label >Username</label>
-      <input type="text" class="form-control">
+      <input [class.is-invalid]="userName?.invalid && 
+                                userName?.touched" formControlName="userName" type="text" class="form-control">
+        <!-- we assign registrationForm.get('userName')? into userName -->
+       <!-- <small class="text-danger" [class.d-none]="registrationForm.get('userName')?.invalid && 
+        registrationForm.get('userName')?.touched" > </small> -->
+     
+      <div *ngIf="userName?.invalid && userName?.touched">
+        <small class="text-danger" *ngIf="userName?.errors?.['required']">Username is required</small>
+        <small class="text-danger" *ngIf="userName?.errors?.['minlength']">Minimum length is 3</small>
+        <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is not valid</small>
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mt-3">
       <label >Password</label>
-      <input type="password" class="form-control">
+      <input formControlName="password" type="password" class="form-control">
     </div>
 
-    <div class="form-group">
+    <div class="form-group mt-3">
       <label >Confirm Password</label>
-      <input type="password" class="form-control">
+      <input [class.is-invalid]="registrationForm.errors?.['misMatch']" formControlName="confirmPassword" type="password" class="form-control">
+      <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']">Password Do Not Match</small>
     </div>
 
-    <button class="btn btn-primary" type="submit">Register</button>
+    <div formGroupName="address">
+      <div class="form-group mt-3">
+        <label >City</label>
+        <input formControlName="city" type="text" class="form-control">
+      </div>
+      <div class="form-group mt-3">
+        <label>State</label>
+        <input formControlName="state" type="text" class="form-control">
+      </div>
+      <div class="form-group mt-3">
+        <label>Postal Code</label>
+        <input formControlName="postalCode" type="text" class="form-control">
+      </div>
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Register</button>
+    <button (click)="loadApiData()" class="btn btn-secondary mr-3 mt-3" type="button">Load API Data</button>
+    
   </form>
-</div>
+</div> 
