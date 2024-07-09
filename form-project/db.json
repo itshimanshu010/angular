@@ -41,6 +41,14 @@
       "password": "123456789",
       "gender": "male",
       "mobileNumber": "7123456789"
+    },
+    {
+      "id": "bf04",
+      "fullName": "Gaurav SIr",
+      "email": "gaurav@bt.com",
+      "password": "123456789",
+      "gender": "male",
+      "mobileNumber": "9638521478"
     }
   ]
 }
