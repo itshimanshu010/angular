@@ -12,27 +12,34 @@ Steps:
     Also delete file of jasmine and karma (if they appear on root example: karma.config.js) or src folder(in src folder if there is test.js remove it )
 
     A. write this command on terminal
-
+    ```
     npm uninstall karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-jasmine karma-jasmine-html-reporter
+    ```
 
     B. write this command on terminal
-
+    ```
     npm uninstall @types/jasmine jasmine-core karma-coverage
+    ```
 
     C.See if there any other package install in dependencies just uninstall it
 
     D.Now go to angular.json and the remove the test object there
 
 3. Now Install Jest by write this command on terminal
+    ```
     npm install jest jest-preset-angular @types/jest --save-dev
+    ```
 
 4. Create a setup.jest.ts file in src folder
+
     after creating this 
     add this line into it
+    ```
         import 'jest-preset-angular/setup-jest';
-
+    ```
 
 5. Now Configure
+
     A. In tsconfig.spec.json 
         edit and add this 
         
@@ -73,5 +80,7 @@ Steps:
         "test-watch": "jest --watch",
         "test:coverage": "jest --coverage"
 
-6. Now Run the test by write this command on terminal
+6. Now Run the test by write this command on terminal   
+```
             npm run test 
+```
