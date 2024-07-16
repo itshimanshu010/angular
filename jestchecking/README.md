@@ -4,7 +4,9 @@ Angular 16
 
 Steps:
 1. Create new project (project name is jestchecking) by write this command on terminal
-   > ng new jestchecking  
+   ```
+    ng new jestchecking  
+    ```
 
 2. Remove all the dependencies of jasmine and   karma 
     Also delete file of jasmine and karma (if they appear on root example: karma.config.js) or src folder(in src folder if there is test.js remove it )
