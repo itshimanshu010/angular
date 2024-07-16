@@ -77,10 +77,14 @@ Steps:
      go to script line then change add this 
 
         "test": "jest",
-        "test-watch": "jest --watch",
+        "test:watch": "jest --watch",
         "test:coverage": "jest --coverage"
 
 6. Now Run the test by write this command on terminal   
-```
+        ```
             npm run test 
-```
+        ```
+        and for watch mode
+        ```
+            npm run test:watch 
+        ```
