@@ -119,10 +119,19 @@ describe('MatchersComponent', () => {
 
   it('compiling error',()=>{
 
-    expect(()=>component.compileErrorFn()).toThrow();
-    //if compileErrorFn() method throws an error then it will pass
+    //make sure that the method that throws an error is always wrapped with expect and arrow function
+    //i.e, expect(()=> otherewise it will not work 
+    expect(()=>component.compileErrorFn()).toThrow(); // to check whether the method throws or not
+    //if compileErrorFn() method throwing or not
 
+    expect(()=>component.compileErrorFn()).toThrow(Error); //here we check whether it is throwing an error or not
+    //here Error is from component that we mention there
 
+    expect(()=>component.compileErrorFn()).toThrow('you are not allowed to compile this code');
+    //Here we check whether the error message is same or not
+
+    expect(()=>component.compileErrorFn()).toThrow(/compile/);
+    //Here we check whether the error message is matching with the given string or not
   })
 
   

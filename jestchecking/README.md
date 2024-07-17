@@ -88,3 +88,8 @@ Steps:
         ```
             npm run test:watch 
         ```
+
+# Matchers
+
+# Mock
+A "mocking" refers to creating fake versions of services, such as HTTP clients, to simulate their behavior without making real HTTP requests
