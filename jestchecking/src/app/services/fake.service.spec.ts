@@ -1,5 +1,6 @@
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { FakeService } from './fake.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 describe('FakeService', () => {
   let service: FakeService;
@@ -12,7 +13,8 @@ describe('FakeService', () => {
     //by create it as an object and in object we have one get method
     
     httpClientSpy = {
-      get: jest.fn() //this will create a mock for the get method
+      get: jest.fn(), //this will create a mock for the get method
+      post: jest.fn() //this will create a mock for the post method
     }
     service = new FakeService(httpClientSpy); //and here we passed httpClientSpy 
   });
@@ -24,7 +26,7 @@ describe('FakeService', () => {
 
   it('should test getDataV1',()=>{
     const data= "Himanshu"; //creating a mock data
-    const url= 'https://jsonplaceholder.org/users?id=1';
+    const url= 'https://jsonplaceholder.typicode.com/todos/1';
     //here we create the url to test whether the url is running or not
 
     jest.spyOn(httpClientSpy,'get').mockReturnValue(of(data));    //mocking to any function //here we have only one function that is get
@@ -44,9 +46,11 @@ describe('FakeService', () => {
   
   })
 
+  //Version 2 og get call
+  
   it('should test getDataV2',(done)=>{
     const res= "Himanshu";
-    const url= 'https://jsonplaceholder.org/users?id=1';
+    const url= 'https://jsonplaceholder.typicode.com/todos/1';
     jest.spyOn(httpClientSpy,'get').mockReturnValue(of(res));    
     service.getDataV2().subscribe(
       {
@@ -61,6 +65,39 @@ describe('FakeService', () => {
     expect(httpClientSpy.get).toBeCalledTimes(1);//this will check how many times the get method is called
     expect(httpClientSpy.get).toHaveBeenCalledWith(url);
   
+  })
+
+  //now lets test the error case
+  it('should test getDataV2',(done)=>{
+    const errorResponse= new HttpErrorResponse({
+      error: 'Test 404 error',
+      status: 404, statusText: 'Not Found'
+  });
+    const url= 'https://jsonplaceholder.typicode.com/todos/1';
+    jest.spyOn(httpClientSpy,'get').mockReturnValue(throwError(()=>errorResponse));    
+    service.getDataV2().subscribe(
+      {
+        next: data => console.log(data),
+        error: error => {
+          expect(error.message).toContain('Test 404 error');
+          done();
+        }
+      
+    })
+    expect(httpClientSpy.get).toBeCalledTimes(1);//this will check how many times the get method is called
+    expect(httpClientSpy.get).toHaveBeenCalledWith(url);
+  
+  })
+
+  //post test
+  it('should test postData',()=>{
+    const command = 'testing';
+    const res = 'Himanshu';
+    const url= 'https://jsonplaceholder.typicode.com/todos/1';
+    jest.spyOn(httpClientSpy,'post').mockReturnValue(of(res));
+
+    service.postData(command);
+    expect(httpClientSpy.post).toBeCalledTimes(1);
   })
 
 });
