@@ -21,11 +21,11 @@ export class DataComponent implements OnInit {
         next: data=>{
           this.serviceData=data;
         },
-        error: error=>{
-          this.errorMessage=error.statusText;
+        error: err=>{
+          this.errorMessage=err.statusText;
         },
         complete:()=>{
-          console.log('Data fetched successfully');
+          console.log('finished');
         }
       })
     }

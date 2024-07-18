@@ -9,12 +9,15 @@ describe('DataComponent', () => {
   let component: DataComponent;
   let fixture: ComponentFixture<DataComponent>;
 
+  // create a mock for FakeService
   let fakeServiceMock:any;
 
   beforeEach(() => {
+    
     fakeServiceMock = {
       getDataV1: jest.fn()
     }
+
     TestBed.configureTestingModule({
       declarations: [DataComponent],
       providers:[{
@@ -31,8 +34,10 @@ describe('DataComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return serviceData',()=>{
-    const expRes={name:"Himanshu Jaiswal"};
+  it('should getServiceData set serviceData',()=>{
+    const expRes={
+                  name:"Himanshu Jaiswal"
+                };
     jest.spyOn(fakeServiceMock,'getDataV1').mockReturnValue(of(expRes));
     fixture.detectChanges();
     expect(component.serviceData.name).toBe(expRes.name);
